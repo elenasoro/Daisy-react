@@ -30,25 +30,3 @@ export function changeUsersList(url){
   }
 }
 
-
-// export const changeUsersList = (users) => {
-//     let newUsers = [];
-//     Axios.get('https://randomuser.me/api/?results=5')
-//     .then(function (response) {
-//         newUsers = response.data.results; 
-//         console.log(newUsers);
-//     })
-//     return {
-      
-//       type: ACTION_CHANGE_USERS_LIST,
-//       users: newUsers
-//     }
-//   }
-
-//  export const changeSecondName = (newSecondName) => {
-//     return {
-//       type: ACTION_CHANGE_SECOND_NAME,
-//       payload: newSecondName
-//     }
-//   }
-

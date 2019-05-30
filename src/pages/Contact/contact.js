@@ -13,7 +13,7 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import rootReducer from '../../store/reducers/rootReducer';
 import { composeWithDevTools } from 'redux-devtools-extension';
-// import { ACTION_CHANGE_FIRST_NAME, ACTION_CHANGE_SECOND_NAME} from '../../store/actionHandlers';
+
 
 
 import { middleware as fetchMiddleware } from 'react-redux-fetch';
@@ -24,19 +24,16 @@ const store = createStore(
 );
 
 
-
 store.dispatch({
     type: 'ACTION_CHANGE_USERS_LIST',
     payload: []
   })
 
 
-
 class Contact extends React.Component{
   constructor(props){
       super(props);
   }
-
 
 
   render(){
@@ -47,7 +44,6 @@ class Contact extends React.Component{
         <Team />
         <section class="testimonials" id="testimonials">
             
-           
             <div class="testimonials__quotes">
                 <img src={Quotes} alt="Quotes"></img>
             </div>

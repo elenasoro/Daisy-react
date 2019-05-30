@@ -25,21 +25,14 @@ class Team extends React.Component{
         super(props);
     }
 
-    
-
-
-
     componentDidMount(){
         this.props.changeUsersList('https://randomuser.me/api/?results=5');
     }
-
-  
 
     render(){
         let usersList;
         if(!this.props.users){
             usersList = <div>Loading...</div>  
-            console.log('undefined');
         }
         else{
             usersList = (
@@ -64,30 +57,21 @@ class Team extends React.Component{
                 </React.Fragment>
             )     
         }
-
-        console.log(this.props);
         return (
         <React.Fragment>
-            
-
-            <section class="team" id="team">
-                         
+            <section class="team" id="team">            
                  <h2 class="block_heading">Our <span>team</span></h2>
                  <div class="team__members container">
                      <div class="row">
                      {usersList}
                      </div>
                  </div>
-              <button class="down down-light" onclick="scrollDown('testimonials')"><img src={DownLight} alt="Down button"></img></button>
-            
-         </section>
-        </React.Fragment>
-                     
-            
+              <button class="down down-light" onclick="scrollDown('testimonials')"><img src={DownLight} alt="Down button"></img></button>  
+            </section>
+        </React.Fragment> 
         )
     }
 }
-
 
 const mapStateToProps = (state) => {
     return {
@@ -102,17 +86,6 @@ const mapStateToProps = (state) => {
         
     }
   };
-
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         fetchData: url => {dispatch(changeUsersList(url))}
-//     };
-// }
-// const mapStateToProps = state => {
-//     return {
-//         users: state.users
-//     }
-// }
 
   export default connect(mapStateToProps, mapDispatchToProps)(Team);
 
