@@ -1,0 +1,27 @@
+.logo {
+    align-items: center;
+    display: flex;
+    p{
+        font-family: 'GothamBold';
+    }
+}
+.logo_hex {
+    align-items: center;
+    background-image: url(../assets/images/logo.png);
+    background-repeat: no-repeat;
+    background-size: center;
+    display: flex;
+    height: 70px;
+    justify-content: center;
+    width: 60px;
+}
+.logo_inner {
+    color: #0c252d;
+    font-size: 30px;
+}
+
+.logo_outer {
+    color: $white;
+    font-size: 25px;
+    margin-left: 15px;
+}

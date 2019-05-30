@@ -1,0 +1,236 @@
+.team{
+    margin-top: -100px;
+    align-items: center;
+    background-color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    padding-top: 67px;
+    h2{
+        margin-bottom: 73px;
+        margin-top: 100px;
+    }
+    .down-light{
+        margin-top: 70px;
+    }
+}
+
+.team__members{
+    .row{
+        justify-content: center;
+    }
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+
+}
+.team_member{
+    text-align: center;
+    margin-bottom: 30px;
+}
+.team__photo{
+    margin-bottom: 30px;
+}
+
+.team__data{
+    min-height: 227px;
+}
+
+.team__name{
+    color: #565656;
+    font-family: 'GothamBold';
+    font-size: 25px;
+    
+    span{
+        color: #fc635e;
+        font-family: 'GothamRegular';
+    }
+}
+
+.team__dob{
+    margin-bottom: 25px;
+}
+
+.team__position{
+    color: #565656;
+    font-family: 'GothamRegular';
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.team__social{
+    display: flex;
+    img:first-child{
+        padding-right: 10px;
+    }
+    img:nth-child(2){
+        padding-right: 10px;
+    }
+}
+
+// Testimonials block
+
+.testimonials{
+    
+    display: flex;
+    flex-direction: column;  
+    justify-content: center;
+}
+.testimonials__carousel-container{
+    align-items: center;
+    display: flex;
+    flex-direction: column;  
+    justify-content: center;
+    position: relative;
+    margin-left: 10%;
+    overflow: hidden;
+}
+.testimonials__carousel-slides{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    display: flex;
+}
+.testimonials__quotes{
+    
+    margin: 30px auto;
+    display: block;
+}
+
+.testimonials__nav{ 
+    display: flex;
+    justify-content: space-between;
+    margin-top: 310px;
+    width: 95px;
+    position: relative;
+    right: 57px;
+    button{
+        border: none;
+        outline: none;
+        &:hover{
+            cursor: pointer;
+            transform: scale(1.3, 1.3);
+            transition: .5s ease;
+        }
+    }
+}
+
+.testimonials__button.disabled{
+    opacity: 0.5;
+    &:hover{
+        cursor: default;
+        transform: none;
+        transition: none;
+    }
+}
+
+.testimonials__item{
+    display: none;
+    margin-top: 74px;
+    width: 80%;
+    position: absolute;
+    top:0;
+    
+    img{
+        position: realtive;
+        left: 50%;
+    }
+}
+.testimonials__item_displayed{
+    display:flex;
+    
+}
+
+
+    .testimonials__item:nth-child(1){
+        left: 0;
+    }
+    .testimonials__item:nth-child(2){
+        left: 100%;
+    }
+    .testimonials__item:nth-child(3){
+        left: 200%;
+    }
+
+
+.testimonials__text{
+    color: #7d7c79;
+    font-family: 'GothamRegular';
+    font-size: 15px;
+    line-height: 1.5;
+    padding-right: 70px;
+    padding-top: 66px;
+    width: 360px;
+}
+.testimonias__position{
+    padding-left: 70px; 
+    padding-top: 66px;
+    h5{
+        color: #565656;
+        font-size: 25px;
+        font-family: 'GothamBold';
+        line-height: 2;
+    }
+    span{
+        color: #fc635e;
+    }
+    p{
+        color: #7d7c79;
+        font-family: 'GothamRegular'; 
+        font-size: 15px; 
+    }
+}
+
+.fade{
+    animation-name: fade;
+    animation-duration: 1.5s;
+
+}
+@keyframes fade{
+    from{opacity: .1}
+    to{opacity:1}
+}
+
+// Map block
+
+.map{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.map__address{
+    align-items: center;
+    background-image: url(../assets/images/map_hex.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 244px;
+    padding-left: 28px;
+    padding-right: 28px;
+    position: relative;
+    text-align: center; 
+    top: 122px;
+    width: 210px;
+    h5{
+        color: #ffffff;
+        font-family: 'GothamBold'; 
+        font-size: 27px;
+        margin-bottom: 30px;
+    }
+    p{
+        color: #ffffff;
+        font-family: 'GothamRegular'; 
+        font-size: 15px;
+    }
+}
+.map__location{
+    background-image: url(../assets/images/map.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 336px;
+    width: 100%;
+}

@@ -1,0 +1,24 @@
+@import "reset";
+@import "./variables";
+@import "./components/Footer/footer";
+@import "./components/Header/header";
+@import "./components/Logo/logo";
+@import "./components/Popup/popup";
+@import "./pages/About/about";
+@import "./pages/Portfolio/portfolio";
+@import "./pages/Services/services";
+@import "./pages/Contact/contact";
+
+@font-face {
+    font-family: 'GothamBold'; 
+    src: url(../assets/fonts/GothamPro/GothamProBold/GothamProBold.ttf); 
+}
+@font-face {
+    font-family: 'GothamRegular'; 
+    src: url(../assets/fonts/GothamPro/GothamProRegular/GothamProRegular.ttf); 
+}
+
+main{
+    min-height: calc(100vh - 333px);
+}
+
