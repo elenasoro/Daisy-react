@@ -1,33 +1,12 @@
-import React from "react";
-
+import React from 'react';
 import Steve from '../../../assets/images/steve.png';
 import Hellen from '../../../assets/images/hellen.png';
 import Quotes from '../../../assets/images/testimonials_quotes.png';
 import Pic from '../../../assets/images/testimonials_pic.png';
 import Left from '../../../assets/images/left.png';
 import Right from '../../../assets/images/right.png';
-import { createStore, bindActionCreators, applyMiddleware } from 'redux';
-
-import Team from '../../components/Team/team';
-import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
-import rootReducer from '../../store/reducers/rootReducer';
-import { composeWithDevTools } from 'redux-devtools-extension';
-
-
-
-import { middleware as fetchMiddleware } from 'react-redux-fetch';
-
-const store = createStore(
-    rootReducer,
-    composeWithDevTools(applyMiddleware(thunk))
-);
-
-
-store.dispatch({
-    type: 'ACTION_CHANGE_USERS_LIST',
-    payload: []
-  })
+import Team from '../../containers/Team/team';
+import { connect } from 'react-redux';
 
 
 class Contact extends React.Component{
@@ -35,12 +14,11 @@ class Contact extends React.Component{
       super(props);
   }
 
-
   render(){
     return(
-    <Provider store={store}>
+   
       <React.Fragment>
-         
+         <p>Hello, {this.props.newUser.name}! ({this.props.newUser.email}, {this.props.newUser.phone})</p>
         <Team />
         <section class="testimonials" id="testimonials">
             
@@ -101,9 +79,16 @@ class Contact extends React.Component{
         </section>
 
       </React.Fragment>
-    </Provider>
+  
     )
   }
 }
 
-export default Contact;
+const mapStateToProps = (state) => {
+    return {
+      newUser: state.newUserReducer.newUser  
+    }
+  };
+
+export default connect(mapStateToProps)(Contact);
+

@@ -1,4 +1,4 @@
-import { ACTION_CHANGE_USERS_LIST } from '../actionHandlers';
+import { ACTION_CHANGE_USERS_LIST } from '../actions/actionHandlers';
 
 
 const initialState = {

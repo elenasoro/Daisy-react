@@ -25,8 +25,7 @@ export function changeUsersList(url){
       .then(res => {
         const users = res.data;
         dispatch(changeUsersListSuccess(users));
-      })
-      
+      }) 
   }
 }
 
