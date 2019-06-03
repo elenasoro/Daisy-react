@@ -1,12 +1,14 @@
 import { combineReducers } from 'redux';
 import { reducer as fetchReducer } from 'react-redux-fetch';
-import { usersReducer } from '../reducers/usersReducer';
-import { newUserReducer } from '../reducers/newUserReducer';
+import usersReducer from './usersReducer';
+import newUserReducer from './newUserReducer';
+import newMemberReducer from './addNewMemberReducer';
 
 const rootReducer = combineReducers({
-    usersReducer: usersReducer,
-    newUserReducer: newUserReducer,
-    repository: fetchReducer,
+  usersReducer,
+  newUserReducer,
+  newMemberReducer,
+  repository: fetchReducer,
 });
-   
+
 export default rootReducer;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { saveUserData } from '../../store/actions/saveUserData';
+import saveUserData from '../../store/actions/saveUserData';
 
 class Popup extends React.Component{
   constructor(props){

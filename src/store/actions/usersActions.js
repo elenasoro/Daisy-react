@@ -1,15 +1,15 @@
-import { ACTION_CHANGE_USERS_LIST } from './actionHandlers';
 import Axios from 'axios';
+import { ACTION_CHANGE_USERS_LIST } from './actionHandlers';
 
 
-export function changeUsersListSuccess(users){
+export function changeUsersListSuccess(users) {
   return {
     type: ACTION_CHANGE_USERS_LIST,
-    users: users
-  }
+    users,
+  };
 }
 
-export function changeUsersList(url){
+export function changeUsersList(url) {
   return (dispatch) => {
     // fetch(url)
     //   .then(response => {
@@ -20,12 +20,11 @@ export function changeUsersList(url){
     //   })
     //   .then(response => response.json())
     //   .then(users => dispatch(changeUsersListSuccess(users)))
-        
+
     Axios.get(url)
-      .then(res => {
+      .then((res) => {
         const users = res.data;
         dispatch(changeUsersListSuccess(users));
-      }) 
-  }
+      });
+  };
 }
-

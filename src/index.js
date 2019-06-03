@@ -1,30 +1,27 @@
-const css = require('./app.scss');
-
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './app';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import rootReducer from '../../webpack_demo/src/store/reducers/rootReducer';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import App from './app';
+import rootReducer from './store/reducers/rootReducer';
+
+const css = require('./app.scss');
 
 const store = createStore(
   rootReducer,
-  composeWithDevTools(applyMiddleware(thunk))
+  composeWithDevTools(applyMiddleware(thunk)),
 );
 
 store.dispatch({
   type: 'ACTION_CHANGE_USERS_LIST',
-  payload: []
-})
-
+  payload: [],
+});
 
 ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.querySelector('.root')
+  document.querySelector('.root'),
 );
-
-

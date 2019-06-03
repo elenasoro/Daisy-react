@@ -2,78 +2,142 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { changeUsersList } from '../../store/actions/usersActions';
+import addNewMember from '../../store/actions/actionAddNewMember';
 import Facebook from '../../../assets/images/fb.png';
 import Twitter from '../../../assets/images/tw.png';
 import Linkedin from '../../../assets/images/in.png';
 import DownLight from '../../../assets/images/down_light.png';
+import AddNewMemberPopup from '../AddNewMemberPopup/AddNewMemberPopup';
 
-class Team extends React.Component{
-  constructor(props){
+class Team extends React.Component {
+  constructor(props) {
     super(props);
-      this.props.changeUsersList('https://randomuser.me/api/?results=5');   
-    }
-
-  returnUsersList(){
-    let usersList;
-    if(!this.props.users){
-      usersList = <div>Loading...</div>  
-    }
-    else{
-      usersList = (
-        <React.Fragment>
-          {this.props.users.results.map((user, index)=>{
-            return (
-              <div class="team_member col-sm-12 col-md-2" key={user.login.uuid}>
-                <div className="team__data">
-                  <img class="team__photo" src={user.picture.large} alt={user.name.last}></img>
-                  <h5 class="team__name"><span>{user.name.first}</span> {user.name.last}</h5>
-                  <p class="team__dob">Age: {user.dob.age}</p>
-                </div>
-
-                <div class="team__social">
-                  <a href="https://www.facebook.com/" target="_blank"><img src={Facebook} alt="Facebook"></img></a> 
-                  <a href="https://twitter.com/" target="_blank"><img src={Twitter} alt="Twitter"></img></a>
-                  <a href="https://www.linkedin.com/feed/" target="_blank"><img src={Linkedin} alt="Linkedin"></img></a>
-                </div>
-              </div>
-            )
-          })}
-        </React.Fragment>
-      )     
-    }
-      return usersList;
+    this.state = {
+      isPopupDisplayed: false,
+    };
+    this.onClose = this.onClose.bind(this);
+    // this.addMember = this.addMember.bind(this);
+    this.openPopup = this.openPopup.bind(this);
+    const { displayUsersList } = this.props;
+    displayUsersList('https://randomuser.me/api/?results=4');
   }
 
-    render(){
-        return (
+  returnUsersList() {
+    let usersList;
+    const { users } = this.props;
+    if (!users) {
+      usersList = <div>Loading...</div>;
+    } else {
+      usersList = (
         <React.Fragment>
-            <section class="team" id="team">            
-                 <h2 class="block_heading">Our <span>team</span></h2>
-                 <div class="team__members container">
-                     <div class="row">
-                     {this.returnUsersList()}
-                     </div>
-                 </div>
-              <button class="down down-light" onclick="scrollDown('testimonials')"><img src={DownLight} alt="Down button"></img></button>  
-            </section>
-        </React.Fragment> 
-        )
+          {users.results.map((user) => {
+            return (
+              <div className="team_member col-sm-12 col-md-2" key={user.login.uuid}>
+                <div className="team__data">
+                  <img className="team__photo" src={user.picture.large} alt={user.name.last} />
+                  <h5 className="team__name">
+                    <span>{user.name.first}</span> 
+                    {user.name.last}
+                  </h5>
+                  <p className="team__dob">
+                    Age: 
+                    {user.dob.age}
+                  </p>
+                </div>
+
+                <div className="team__social">
+                  <a href="https://www.facebook.com/" rel="noopener noreferrer" target="_blank"><img src={Facebook} alt="Facebook" /></a> 
+                  <a href="https://twitter.com/" rel="noopener noreferrer" target="_blank"><img src={Twitter} alt="Twitter" /></a>
+                  <a href="https://www.linkedin.com/feed/" rel="noopener noreferrer" target="_blank"><img src={Linkedin} alt="Linkedin" /></a>
+                </div>
+              </div>
+            );
+          })}
+        </React.Fragment>
+      );
     }
+    return usersList;
+  }
+
+  returnNewMemeber() {
+    let newMemberBlock;
+    const { newMember } = this.props;
+
+    if (newMember.name == '') {
+      newMemberBlock = null;
+    } else {
+      newMemberBlock = (
+        <React.Fragment>
+          <div className="team_member col-sm-12 col-md-2">
+            <div className="team__data">
+              <div className="avatar_defaul" />
+                  <h5 className="team__name">
+                    <span>{newMember.name}</span> 
+                  </h5>
+                  <p className="team__dob">
+                    Age: 
+                    {newMember.age}
+                  </p>
+                </div>
+
+                <div className="team__social">
+                  <a href={newMember.facebook} rel="noopener noreferrer" target="_blank"><img src={Facebook} alt="Facebook" /></a> 
+                  <a href={newMember.twitter} rel="noopener noreferrer" target="_blank"><img src={Twitter} alt="Twitter" /></a>
+                  <a href={newMember.linkedin} rel="noopener noreferrer" target="_blank"><img src={Linkedin} alt="Linkedin" /></a>
+                </div>
+          </div>
+        </React.Fragment>
+      );
+    }
+    return newMemberBlock;
+  }
+
+  openPopup() {
+    this.setState({ isPopupDisplayed: true });
+  }
+
+  onClose() {
+    this.setState({ isPopupDisplayed: false });
+  }
+
+  render() {
+    const { isPopupDisplayed } = this.state;
+    return (
+      <React.Fragment>
+        <section className="team" id="team">         
+          <h2 className="block_heading">
+            Our
+            <span>team</span>
+          </h2>
+          <button type="button" className="team__add" onClick={this.openPopup}>
+              <i className="fas fa-plus"></i>
+          </button>
+          <div className="team__members container">
+            <div className="row">
+              {this.returnUsersList()}
+              {this.returnNewMemeber()}
+            </div>
+          </div>
+          <button className="down down-light" onClick="scrollDown('testimonials')" type="button"><img src={DownLight} alt="Down button" /></button>
+          <AddNewMemberPopup isPopupDisplayed={isPopupDisplayed} onClose={this.onClose} userName={this.props.userName} />
+        </section>
+      </React.Fragment>
+    );
+  }
 }
 
 const mapStateToProps = (state) => {
   return {
-    users: state.usersReducer.users
-  }
+    users: state.usersReducer.users,
+    newMember: state.newMemberReducer.newMember,
+  };
 };
   
 const mapDispatchToProps = (dispatch) => {
   return {
-    changeUsersList: bindActionCreators(changeUsersList, dispatch) 
+    displayUsersList: bindActionCreators(changeUsersList, dispatch),
+    addMember: bindActionCreators(addNewMember, dispatch),
   }
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Team);
-
-
-    
