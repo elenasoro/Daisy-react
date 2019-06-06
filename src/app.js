@@ -1,6 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import About from './pages/About/about';
 import Portfolio from './pages/Portfolio/portfolio';
 import Services from './pages/Services/services';
@@ -27,4 +26,3 @@ function App() {
 }
 
 export default App;
-

@@ -1,17 +1,16 @@
 import { ADD_NEW_MEMBER } from './actionHandlers';
 
-
-function addNewMember(name, age, facebook_link, twitter_link, linkedin_link) {
+export default function addNewMember(name, age, facebookLink, twitterLink, linkedinLink) {
   return {
     type: ADD_NEW_MEMBER,
     payload: {
       name,
       age,
-      facebook: facebook_link,
-      twitter: twitter_link,
-      linkedin: linkedin_link,
+      facebook: facebookLink,
+      twitter: twitterLink,
+      linkedin: linkedinLink,
     },
   };
 }
 
-export default addNewMember;
+// export default addNewMember;
