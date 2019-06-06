@@ -76,6 +76,7 @@ const mapStateToProps = (state) => {
 
 function mapDispatchToProps(dispatch) {
   console.log(test)
+  console.log(test)
   return {
     addMember: (name, age, facebookLink, twitterLink, linkedinLink) => {
       dispatch(addNewMember(name, age, facebookLink, twitterLink, linkedinLink));
