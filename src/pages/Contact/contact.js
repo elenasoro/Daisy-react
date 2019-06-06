@@ -22,7 +22,7 @@ function Contact(props) {
         {newUser.phone}
         )
       </p>
-      <Team userName={newUser.name}/>
+      <Team userName={newUser.name} />
       <section className="testimonials" id="testimonials">
         <div className="testimonials__quotes">
           <img src={Quotes} alt="Quotes" />
@@ -116,5 +116,5 @@ const mapStateToProps = (state) => {
     newUser: state.newUserReducer.newUser,
   };
 };
-    
+
 export default connect(mapStateToProps)(Contact);

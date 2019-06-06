@@ -27,6 +27,7 @@
         "react/jsx-uses-vars": "error",
         "at-rule-name-space-after": "always",
         "block-opening-brace-space-before": "always",
-        "block-closing-brace-newline-after": "always"
+        "block-closing-brace-newline-after": "always",
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
       }
 }
