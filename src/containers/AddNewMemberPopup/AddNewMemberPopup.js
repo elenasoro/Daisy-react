@@ -93,3 +93,5 @@ function mapDispatchToProps(dispatch) {
 //   {addNewMember})(AddNewMemberPopup);
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddNewMemberPopup);
+
+//test
